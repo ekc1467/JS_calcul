@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      td {
+        padding: 20px 40px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <td colspan="4">
+          <input type="text" id="input1" />
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="3" onclick="reset()">AC</td>
+        <td onclick="add('/')">/</td>
+      </tr>
+      <tr>
+        <td onclick="add(7)">7</td>
+        <td onclick="add(8)">8</td>
+        <td onclick="add(9)">9</td>
+        <td onclick="add('*')">*</td>
+      </tr>
+      <tr>
+        <td onclick="add(4)">4</td>
+        <td onclick="add(5)">5</td>
+        <td onclick="add(6)">6</td>
+        <td onclick="add('-')">-</td>
+      </tr>
+      <tr>
+        <td onclick="add(1)">1</td>
+        <td onclick="add(2)">2</td>
+        <td onclick="add(3)">3</td>
+        <td onclick="add('+')">+</td>
+      </tr>
+      <tr>
+        <td colspan="2" onclick="add(0)">0</td>
+        <td onclick="add('.')">.</td>
+        <td onclick="calculate()">=</td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <input type="text" id="result" />
+        </td>
+      </tr>
+    </table>
+    <script>
+      function add(char) {
+        var input1 = document.getElementById("input1");
+        input1.value = input1.value + char;
+      }
+      function calculate() {
+        var input1 = document.getElementById("input1");
+        var result = eval(input1.value);
+        document.getElementById("result").value = result;
+      }
+      function reset() {
+        document.getElementById("input1").value = "";
+        document.getElementById("result").value = "";
+      }
+    </script>
+  </body>
+</html>
